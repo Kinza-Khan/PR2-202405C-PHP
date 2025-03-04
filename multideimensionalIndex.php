@@ -11,10 +11,11 @@
   </head>
   <body>
         <?php
-        $allStudents = [
-            ["ali",21,"karachi" , "ali@mail.com" ], 
-            ["sana",23,"karachi" , "sana@gmail.com"], 
-            ["aqsa",23 ,"lahore", "aqsa@gmail.com"] 
+        $allStudents =
+            [
+            ["ali",21,"karachi" , "ali@mail.com", "123" ],       
+            ["sana",23,"karachi" , "sana@gmail.com"],        
+           ["aqsa",23 ,"lahore", "aqsa@gmail.com" ,"aqsa123"] 
         ];    
         ?>   
             <table class="table">
@@ -24,6 +25,7 @@
                         <th>Age</th>
                         <th>City</th>
                         <th>Email</th>
+                        <th>Password</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,10 +33,13 @@
                     foreach($allStudents as $key => $student){
                         ?>
                       <tr>
-                        <td><?php echo $student[0]?></td>
-                        <td><?php echo $student[1]?></td>
-                        <td><?php echo $student[2]?></td>
-                        <td><?php echo $student[3]?></td>                    
+                            <?php
+                            foreach($student as $data){
+                            ?>                 
+                            <td><?php echo $data?></td>
+                            <?php
+                            }
+                            ?>
                     </tr>
                     <?php
                     }
