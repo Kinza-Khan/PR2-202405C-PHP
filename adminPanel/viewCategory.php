@@ -33,7 +33,7 @@ include("components/header.php");
                                             <td><?php echo $category['description']?></td>
                                             <td><img height="100px" src="images/<?php echo $category['image']?>" alt=""></td>
                                             <td><a href="editCategory.php?cId=<?php echo $category['id']?>" class="btn btn-info">Edit</a></td>
-                                            <td><a href="" class="btn btn-danger">Remove</a></td>
+                                            <td><a href="?categoryId=<?php echo $category['id']?>" class="btn btn-danger">Remove</a></td>
                                            
                                         </tr>
 
