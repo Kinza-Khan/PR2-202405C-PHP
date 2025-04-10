@@ -82,11 +82,29 @@ $productNameErr = $productPriceErr = $productDesErr = $productQuantityErr = $pro
 
 if(isset($_POST['addProduct'])){
         $productName = $_POST['pName'];
-        $productName = $_POST['pPrice'];
-        $productName = $_POST['pQty'];
-        $productName = $_POST['pDes'];
+        $productPrice = $_POST['pPrice'];
+        $productQuantity = $_POST['pQuantity'];
+        $productDes = $_POST['pDes'];
         $categoryId = $_POST['cId'];
-        $productName = $_POST['pName'];
+        $productImageName = $_FILES['pImage'];
+        if(empty($productName)){
+                $productNameErr = "Product Name is Required" ;
+        }
+        if(empty($productPrice)){
+            $productPriceErr = "Product Price is Required" ;
+    }
+    if(empty($productDes)){
+        $productDesErr = "Product Description is Required" ;
+}
+if(empty($productQuantity)){
+    $productQuantityErr = "Product Quantity is Required" ;
+}
+if(empty($categoryId)){
+    $categoryIdErr = "category is Required" ;
+}
+if(empty($productImageName)){
+    $productImageNameErr = "Product Image is Required" ;
+}
 }
 
 ?>
