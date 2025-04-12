@@ -77,16 +77,20 @@ if(isset($_GET['categoryId'])){
     echo "<script>alert('category deleted');location.assign('viewCategory.php')</script>";
 }
 
+
+// add product 
 $productName = $productPrice = $productDes = $productQuantity = $productImageName = $categoryId = "" ;
 $productNameErr = $productPriceErr = $productDesErr = $productQuantityErr = $productImageNameErr = $categoryIdErr = "" ;
-
 if(isset($_POST['addProduct'])){
         $productName = $_POST['pName'];
         $productPrice = $_POST['pPrice'];
         $productQuantity = $_POST['pQuantity'];
         $productDes = $_POST['pDes'];
         $categoryId = $_POST['cId'];
-        $productImageName = $_FILES['pImage'];
+        $productImageName = $_FILES['pImage']['name'];
+        $productImageTmpName = $_FILES['pImage']['tmp_name'];
+        $extension = pathinfo($productImageName,PATHINFO_EXTENSION);
+        $destination = "images/".$productImageName ;
         if(empty($productName)){
                 $productNameErr = "Product Name is Required" ;
         }
@@ -104,6 +108,26 @@ if(empty($categoryId)){
 }
 if(empty($productImageName)){
     $productImageNameErr = "Product Image is Required" ;
+}
+else{
+    $format = ["jpg" ,"png" ,"jpeg" ,"webp"] ;
+    if(!in_array($extension ,$format)){
+            $productImageNameErr = "Invalid Extension" ;
+    }
+}
+if(empty($productNameErr) && empty($productDesErr) && empty($productPriceErr) && empty($productQuantityErr) && empty($categoryIdErr) && empty($productImageNameErr) ){
+        if(move_uploaded_file($productImageTmpName ,$destination)){
+            $query = $pdo->prepare("insert into products (name, price , qty , description , image , c_id) values (:name, :price , :qty , :description , :image , :c_id)");
+            $query->bindParam('name',$productName);
+            $query->bindParam('price',$productPrice);
+            $query->bindParam('description',$productDes);
+            $query->bindParam('qty',$productQuantity);
+            $query->bindParam('c_id',$categoryId);
+            $query->bindParam('image',$productImageName);
+            $query->execute();
+            echo "<script>alert('product added');location.assign('viewProducts.php')</script>";
+
+        }
 }
 }
 
