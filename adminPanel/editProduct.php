@@ -77,7 +77,7 @@ if(isset($_GET['pId'])){
                                 </select>
                                 <small class="text-danger"><?php echo $categoryIdErr?></small>
                                 </div>
-                                <button name="updateProduct" type="submit" class="btn btn-primary">Add product</button>
+                                <button name="updateProduct" type="submit" class="btn btn-primary">Update product</button>
                          </form>                   
                     </div>
                     </div>

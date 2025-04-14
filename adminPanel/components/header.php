@@ -78,7 +78,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Products</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="addProduct.php" class="dropdown-item">Add Product</a>
-                            <a href="viewProduct.php" class="dropdown-item">View Product</a>
+                            <a href="viewProducts.php" class="dropdown-item">View Product</a>
                         </div>
                     </div>
                     <a href="orders.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Orders</a>
