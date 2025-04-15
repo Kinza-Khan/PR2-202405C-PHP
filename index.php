@@ -24,7 +24,7 @@ include("php/query.php");
 							</div>
 								
 							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-								<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								<a href="product.php" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
 									Shop Now
 								</a>
 							</div>
@@ -97,9 +97,9 @@ include("php/query.php");
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block1 -->
 					<div class="block1 wrap-pic-w">
-						<img height="500px" src="adminPanel/images/<?php echo $category['image']?>" alt="IMG-BANNER">
+						<img height="400px" src="adminPanel/images/<?php echo $category['image']?>" alt="IMG-BANNER">
 
-						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						<a href="product.php?cId=<?php echo $category['id']?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 									<?php echo $category['name']?>
@@ -107,7 +107,7 @@ include("php/query.php");
 
 								<span class="block1-info stext-102 trans-04">
 									New Trend
-								</span>
+								</span> 
 							</div>
 
 							<div class="block1-txt-child2 p-b-4 trans-05">
@@ -382,7 +382,7 @@ include("php/query.php");
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img height="400px" src="adminPanel/images/<?php echo $product['image']?>" alt="IMG-PRODUCT">
+							<img height="300px" src="adminPanel/images/<?php echo $product['image']?>" alt="IMG-PRODUCT">
 						<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
 							</a>
